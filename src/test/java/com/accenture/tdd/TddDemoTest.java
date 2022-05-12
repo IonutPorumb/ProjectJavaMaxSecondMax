@@ -78,4 +78,18 @@ class TddDemoTest {
 
     }
 
+    @Test
+    void testFirstMaxAndSecondMaxHeavingListOfZeros() {
+        TddDemo tdd = new TddDemo();
+        MaxValues maxValues = tdd.max(List.of(0, 0, 0, 0, 0));
+
+        int expectedMAx = 0;
+        int expectedSecondMax = 0;
+
+        Assertions.assertNotNull(maxValues);
+        Assertions.assertEquals(expectedMAx, maxValues.max());
+        Assertions.assertEquals(expectedSecondMax, maxValues.secondMax());
+
+    }
+
 }
