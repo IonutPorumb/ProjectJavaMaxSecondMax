@@ -2,10 +2,12 @@ package com.accenture.tdd;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 
 class TddDemoTest {
     // Write a method "max" that gets as an input a list of Integers and returns the max two values.
@@ -65,14 +67,15 @@ class TddDemoTest {
     @Test
     void testFirstMaxAndSecondMax() {
         TddDemo tdd = new TddDemo();
-        MaxValues maxValues = tdd.max(List.of(1, 2, 5, 7, 5));
+        MaxValues maxValues = tdd.max(List.of(1, 2, 7, 7, 5));
 
         int expectedMAx = 7;
-        int expectedSecondMax = 5;
+        int expectedSecondMax = 7;
 
         Assertions.assertNotNull(maxValues);
         Assertions.assertEquals(expectedMAx, maxValues.max());
         Assertions.assertEquals(expectedSecondMax, maxValues.secondMax());
+
     }
 
 }
