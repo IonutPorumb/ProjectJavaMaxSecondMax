@@ -62,4 +62,17 @@ class TddDemoTest {
         Assertions.assertEquals(expected, values.max());
     }
 
+    @Test
+    void testFirstMaxAndSecondMax() {
+        TddDemo tdd = new TddDemo();
+        MaxValues maxValues = tdd.max(List.of(1, 2, 5, 7, 5));
+
+        int expectedMAx = 7;
+        int expectedSecondMax = 5;
+
+        Assertions.assertNotNull(maxValues);
+        Assertions.assertEquals(expectedMAx, maxValues.max());
+        Assertions.assertEquals(expectedSecondMax, maxValues.secondMax());
+    }
+
 }
