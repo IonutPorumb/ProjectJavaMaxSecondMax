@@ -7,10 +7,10 @@ import java.util.List;
 public class Person {
     private String firstName;
     private String lastName;
-    private Integer age;
+    private int age;
     private String city;
 
-    public Person(String firstName, String lastName, Integer age, String city) {
+    public Person(String firstName, String lastName, int age, String city) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -23,19 +23,24 @@ public class Person {
 
     public static MaxValues compareToAge(List<Person> personList) {
         if (personList != null && personList.size() > 1) {
-            int max = Integer.MIN_VALUE;
-            int secondMax = Integer.MIN_VALUE;
-            for (Person p : personList) {
-                if (p.age == null) {
-                    return null;
-                } else if (p.age > secondMax && p.age > max) {
-                    secondMax = max;
-                    max = p.age;
-                } else if (p.age > secondMax) {
-                    secondMax = p.age;
+            if (personList.get(0) != null && personList.get(1) != null) {
+                Person max = personList.get(0).age > personList.get(1).age ?
+                        personList.get(0) : personList.get(1);
+                Person secondMax = personList.get(0).age <= personList.get(1).age ?
+                        personList.get(0) : personList.get(1);
+
+                for (Person person : personList) {
+                    if (person == null) {
+                        return null;
+                    } else if (person.age > secondMax.age && person.age > max.age) {
+                        secondMax = max;
+                        max = person;
+                    } else if (person.age > secondMax.age) {
+                        secondMax = person;
+                    }
                 }
+                return new MaxValues(max, secondMax);
             }
-            return new MaxValues(max, secondMax);
         }
         return null;
     }

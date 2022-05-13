@@ -24,12 +24,6 @@ class PersonTest {
         assertNull(Person.compareToAge(List.of(new Person("Ana", "Constantin", 23, "Oradea"))));
     }
 
-    @Test
-    void compareToAgeWhenListHasOneTwoElementsAndOneIsNull() {
-
-        assertNull(Person.compareToAge(List.of(new Person("Ana", "Constantin", 23, "Oradea"),
-                new Person("Daniel", "Comanescu", null, "Iasi"))));
-    }
 
     @Test
     void compareToAgeWhenMoreThen2ValuesArePresentInList() {
@@ -48,6 +42,6 @@ class PersonTest {
 
         List<Person> personList = new ArrayList<>(List.of(person1, person2, person3, person4,
                 person5, person6, person7, person8, person9, person10, person11, person12));
-        assertEquals(new MaxValues(67, 67), Person.compareToAge(personList));
+        assertEquals(new MaxValues(person5, person6), Person.compareToAge(personList));
     }
 }
