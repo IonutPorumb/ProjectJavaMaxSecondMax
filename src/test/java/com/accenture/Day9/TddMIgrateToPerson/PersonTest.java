@@ -1,14 +1,13 @@
 package com.accenture.Day9.TddMIgrateToPerson;
 
 import com.accenture.tdd.MaxValues;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class PersonTest {
 
@@ -23,7 +22,6 @@ class PersonTest {
 
         assertNull(Person.compareToAge(List.of(new Person("Ana", "Constantin", 23, "Oradea"))));
     }
-
 
     @Test
     void compareToAgeWhenMoreThen2ValuesArePresentInList() {

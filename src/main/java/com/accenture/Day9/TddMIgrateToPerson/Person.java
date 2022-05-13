@@ -28,15 +28,14 @@ public class Person {
                         personList.get(0) : personList.get(1);
                 Person secondMax = personList.get(0).age <= personList.get(1).age ?
                         personList.get(0) : personList.get(1);
-
-                for (Person person : personList) {
-                    if (person == null) {
-                        return null;
-                    } else if (person.age > secondMax.age && person.age > max.age) {
+                for (int i = 2; i < personList.size();i++) {
+                    if (i < personList.size()-2 && personList.get(i) == null ) {
+                        continue;
+                    } else if (personList.get(i).age > secondMax.age && personList.get(i).age > max.age) {
                         secondMax = max;
-                        max = person;
-                    } else if (person.age > secondMax.age) {
-                        secondMax = person;
+                        max = personList.get(i);
+                    } else if (personList.get(i).age > secondMax.age) {
+                        secondMax = personList.get(i);
                     }
                 }
                 return new MaxValues(max, secondMax);
