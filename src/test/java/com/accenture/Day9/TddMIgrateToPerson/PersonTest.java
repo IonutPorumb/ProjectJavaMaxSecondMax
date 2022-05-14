@@ -30,7 +30,7 @@ class PersonTest {
         Person person2 = new Person("Daniel", "Popa", 16, "Iasi");
         Person person3 = new Person("Monica", "Munteanu", 30, "Bucuresti");
         Person person4 = new Person("Mihai", "Lupu", 15, "Oradea");
-        Person person5 = new Person("Sergiu", "Potra", 67, "Cluj-Napoca");
+        Person person5 = new Person("Sergiu", "Potra", 62, "Cluj-Napoca");
         Person person6 = new Person("Stefania", "Marcu", 67, "Cluj-Napoca");
         Person person7 = new Person("Ioana", "Popescu", 27, "Timisoara");
         Person person8 = new Person("Andrei", "Maier", 13, "Brasov");
@@ -40,6 +40,6 @@ class PersonTest {
 
         List<Person> personList = new ArrayList<>(List.of(person1, person2, person3, person4,
                 person5, person6, person7, person8, person9, person10, person11, person12));
-        assertEquals(new MaxValues(person5, person6), Person.compareToAge(personList));
+        assertEquals(new MaxValues(person6, person9), Person.compareToAge(personList));
     }
 }
