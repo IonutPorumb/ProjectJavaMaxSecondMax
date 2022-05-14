@@ -29,6 +29,10 @@ public class Person {
         }
     }
 
+    public int compareTo(Person person){
+        return Math.max(this.age, person.age);
+    }
+
 
     public String concatFirstNameLastName() {
         return firstName + " " + lastName;
@@ -36,9 +40,9 @@ public class Person {
 
     public static MaxValues compareToAge(List<Person> personList) {
         if (personList != null && personList.size() > 1) {
-                Person max = personList.get(0).age > personList.get(1).age ?
+                Person max = personList.get(0).compareTo(personList.get(1)) > 0 ?
                         personList.get(0) : personList.get(1);
-                Person secondMax = personList.get(0).age <= personList.get(1).age ?
+                Person secondMax = personList.get(0).compareTo(personList.get(1)) >0 ?
                         personList.get(0) : personList.get(1);
                 for (int i = 2; i < personList.size(); i++) {
                     if (personList.get(i).age > secondMax.age && personList.get(i).age > max.age) {
@@ -50,7 +54,7 @@ public class Person {
                 }
                 return new MaxValues(max, secondMax);
             }
-        
+
         return null;
     }
 
